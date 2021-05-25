@@ -81,6 +81,7 @@
 .tweets .tweet .media img, .tweets .tweet .media iframe {
   margin: auto;
   width: 92%;
+  max-height: 450px;
 }
 
 .tweets .tweet .engagements {

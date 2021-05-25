@@ -48,12 +48,9 @@ def fetch_new_tips():
             try:
                 url = Link.objects.create(link_type='photo', url=medium['media_url'])
             except KeyError:
-                print(medium)
                 url = Link.objects.create(link_type='video', url=medium['video_info']["variants"][0]["url"])
                 
             tweet_instance.links.add(url)
-
-        print('succesfully done!')
 
 
 
