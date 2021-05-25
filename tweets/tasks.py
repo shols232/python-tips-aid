@@ -5,7 +5,10 @@ from celery import shared_task
 from datetime import datetime
 from .models import Tweet, Link
 from django.conf import settings
+from django.utils.timezone import make_aware
 import json
+
+settings.TIME_ZONE
 
 auth = tweepy.OAuthHandler(settings.TWITTER_API_KEY, settings.TWITTER_API_SECRET_KEY)
 auth.set_access_token(settings.TWITTER_API_ACCESS_TOKEN, settings.TWITTER_API_ACCESS_TOKEN_SECRET)
@@ -24,7 +27,8 @@ def fetch_new_tips():
         tweets = api.user_timeline(screen_name = screen_name,count=50, tweet_mode='extended')
 
     for tweet in tweets:
-        new_datetime = tweet.created_at.strftime('%Y-%m-%d %H:%M:%S')
+        # convert naive timezone obj to datetime aware to avoid datetime warnings 
+        new_datetime = make_aware(tweet.created_at.strftime('%Y-%m-%d %H:%M:%S'))
 
         tweet_instance = Tweet.objects.create(
             tweet_id=tweet.id, 
