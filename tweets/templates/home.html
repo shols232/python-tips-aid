@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+{% endblock header %}
+    {% block content %}
+    <div class="container">
+        {% if search_page %}
+        <div class="go-home">
+            <a href="{% url 'home' %}">GO HOME</a>
+        </div>
+        {% endif %}
+        <div class="tweets">
+            {% for tweet in tweets %}
+            <div class="tweet">
+                <div class="posted_by">
+                    <p>{{ tweet.posted_by }}</p> -
+                    <span>{{ tweet.date_posted }}</span>
+                    <a class="rt" href="{% url 'retweet' tweet.tweet_id%}"><span class="retweet">RETWEET</span></a>
+                </div>
+                    {% autoescape off %}
+                    <pre class="content">{{ tweet.content }}</pre>
+                    {% endautoescape %}
+                    <div class="media">
+                        {% for media in tweet.links.all %}
+                        {% ifequal media.link_type 'photo' %}
+                            <img src="{{media.url}}" alt="">
+                        {% else %}
+                        <iframe src="{{media.url}}" frameborder="0"></iframe>
+                        {% endifequal %}
+                        {% endfor %}
+                    </div>
+                    <div class="engagements">
+                        <span class="likes">LIKES <span>{{tweet.favourite_count}}</span></span>
+                        <span class="retweets">RETWEETS <span>{{ tweet.retweet_count }}</span></span>
+                    </div>
+            </div>
+            {% endfor %}
+        </div>
+        <nav aria-label="page navigation" class="navigation">
+            {% if is_paginated %}{% load paginator %}{% paginator 6 %}{% endif %}
+        </nav>
+    </div>
+    
+
+{% endblock content %}

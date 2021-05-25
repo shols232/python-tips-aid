@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    {% block header %}
+    {% endblock header %}
+</head>
+<body>
+    <div class="nav-cont">
+        <nav class="navbar">
+            <a href="">
+                <div id="logo"><h1>TwiT</h1></div>
+            </a>
+            <div class="nav-items-container">
+                <div class="searchbar">
+                    <form action="/" method="GET">
+                        <input type="text" placeholder="Search products, brands and categories" name="search" id="nav-searchbar">
+                        <button class="search-btn" type="submit" >SEARCH</button>
+                    </form>
+                    </div>
+                <div class="rightmost-nav-items">
+                    {% if request.session.is_authenticated %}
+                    <a href="{% url 'logout' %}"><div class="login">
+                        <span>Log Out</span>
+                    </div></a>
+                    {% else %}
+                    <a href="{% url 'twitter_auth' %}"><div class="login">
+                        <span>Authenticate</span>
+                    </div></a>
+                   {% endif %}
+                </div>
+            </div>
+        </nav>
+    </div>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

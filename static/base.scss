@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;;
+}
+
+body{
+    background-color: #fff;
+
+    h1{
+        color: rgb(40,40,40);
+    }
+  }
+
+.show{
+    display: flex !important;
+}
+
+.hide{
+    display: none !important;
+}
+button{
+    cursor: pointer;
+}
+a{
+    text-decoration: none !important;
+    color: black !important;
+}
+.container{
+    // padding: 0 5rem
+    // width: fit-content;
+    min-width: 800px;
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.nav-cont{
+    background-color: white;
+    box-shadow: 0 4px 4px -4px rgba(0,0,0,0.12);
+}
+.navbar{
+    display: flex;
+    margin: 0 auto;
+    box-shadow: unset;
+    height: 90px;
+    background-color: white;
+    max-width: 850px;
+    min-width: 850px;
+    align-items: center;
+
+    .logo{
+        height: 2rem;
+        vertical-align: unset;
+    }
+
+    h1{
+        display: inline-block;
+        font-size: 2.1rem;
+        font-weight: 300;
+        margin: .5rem 0 0 0;
+    }
+
+    .nav-items-container{
+        display: flex;
+        justify-content: space-between;
+        flex: 42%;
+        align-items: center;
+    }
+    .searchbar.mobile{
+        display: none;
+    }
+    .searchbar{
+        display: flex;
+        flex: 81%;
+        form{
+            display: flex;
+            flex: auto;
+        }
+        input{
+            width: 100%;
+            height: 43px;
+            font-size: 17px;
+            padding-left: 10px;
+            border: 1px solid #ccc;
+            border-radius: .5rem;
+            outline: none;
+            margin: 0 1rem 0 1.5rem;
+        }
+        .search-btn{
+            height: 43px;
+            width: 120px;
+            background-color: #f68b1e;
+            color: white;
+            font-size: .875rem;
+            line-height: 1rem;
+            border-radius: .35rem;
+            font-weight: 500;
+            outline: none;
+            border: none;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2)
+        }
+    }
+
+    .rightmost-nav-items{
+        display: flex;
+           justify-content: center;
+           flex: 19%;
+           align-items: center;
+           position: relative;
+        div{
+           margin: 0.5rem  1rem;
+           font-size: 16px;
+           font-weight: 300;
+           cursor: pointer;
+           img{
+               height: 25px;
+               width: 25px;
+               margin-right: 5px;
+               position: relative;
+               top: 4px;
+               vertical-align: unset;
+           }
+
+           #cart-count{
+                position: absolute;
+                border-radius: 50%;
+                background-color: #f68b1e;
+                color: white;
+                font-size: 11px;
+                /* padding: .2rem; */
+                height: 16px;
+                line-height: 15px;
+                text-align: center;
+                width: 16px;
+                top: 11px;
+                border: 1.8px solid #fff;
+                right: 47px;
+           }
+
+           &:hover{
+               color: #f68b1e;
+           }
+       }
+    }
+
+}
+
+@media screen and (max-width: 830px){
+    .container{
+        max-width: 600px;
+    min-width: 600px;
+    }
+
+    .navbar{
+        max-width: 600px;
+        min-width: 600px;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .container{
+        max-width: unset !important;
+        // min-width: 480px !important;
+        min-width: unset !important;
+        width: 100vw;
+    }
+
+    .navbar{
+        max-width: unset;
+        min-width: unset;
+        width: 100vw;
+        flex-wrap: wrap;
+        height: auto;
+        padding: 11px;
+        .logo{
+            height: 1.6rem;
+            vertical-align: unset;
+        }
+
+        h1{
+            font-size: 1.7rem;
+        }
+        .searchbar{
+            display: none;
+        }
+        .searchbar.mobile{
+            display: flex;
+            flex: 100%;
+            margin: 10px 1%;
+            
+
+            input{
+                border-radius: 2rem;
+                margin: 0;
+            }
+        }
+        .nav-items-container{
+            justify-content: unset;
+            margin: 0 .2rem 0 auto;
+            flex: none;
+            
+            .rightmost-nav-items{
+                justify-content: unset;
+                
+                div{
+                    margin: 0 .5rem .5rem;
+                    span{
+                        display: none;
+                    }
+                    img{
+                        height: 23px;
+                        width: 23px;
+                    }
+                }
+            }
+        }
+    }
+}

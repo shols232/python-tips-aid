@@ -1,0 +1,154 @@
+.tweets {
+  margin-top: 2.5rem;
+}
+
+.tweets .tweet {
+  margin-bottom: 1.2rem;
+  padding: 14px;
+  border-radius: .5rem;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tweets .tweet pre {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.tweets .tweet .posted_by {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: .4rem;
+}
+
+.tweets .tweet .posted_by p {
+  margin-right: 8px;
+  color: #140f19;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.tweets .tweet .posted_by span {
+  color: #5b7083;
+  font-size: 15.5px;
+  margin-left: 8px;
+}
+
+.tweets .tweet .posted_by a.rt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: left;
+  margin-left: auto;
+}
+
+.tweets .tweet .posted_by .retweet {
+  color: #f68b1e;
+  position: relative;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.tweets .tweet .posted_by .retweet:hover {
+  cursor: pointer;
+}
+
+.tweets .tweet .posted_by .retweet:hover::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  background-color: rgba(246, 139, 30, 0.15);
+}
+
+.tweets .tweet .media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 8px 0;
+}
+
+.tweets .tweet .media img, .tweets .tweet .media iframe {
+  margin: auto;
+  width: 92%;
+}
+
+.tweets .tweet .engagements {
+  margin-top: .5rem;
+  border: 1px solid #f5f5f5;
+  border-right: none;
+  border-left: none;
+  padding: .3rem;
+}
+
+.tweets .tweet .engagements .likes span, .tweets .tweet .engagements .retweets span {
+  margin-left: 7px;
+  color: #f68b1e;
+  font-weight: 600;
+}
+
+.tweets .tweet .engagements .likes {
+  margin-right: 20px;
+}
+
+.navigation {
+  margin-bottom: 3rem;
+}
+
+.navigation .pager {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.navigation .pager .page a {
+  margin: 0 6px;
+  border: 1px solid #f68b1e;
+  padding: 4px;
+  -webkit-transition: 0.4s all ease-out;
+  transition: 0.4s all ease-out;
+  color: #f68b1e !important;
+}
+
+.navigation .pager .page a:hover {
+  background-color: #f68b1e;
+  color: white;
+}
+
+.navigation .pager .current {
+  color: #e48e2c;
+  font-weight: 600;
+}
+
+.go-home {
+  margin-top: 2rem;
+}
+
+.go-home a {
+  color: #f68b1e !important;
+  position: relative;
+}
+
+.go-home a:hover {
+  cursor: pointer;
+}
+
+.go-home a:hover::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  background-color: rgba(246, 139, 30, 0.15);
+}
+/*# sourceMappingURL=home.css.map */

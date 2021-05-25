@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="{% static 'home.css' %}">
+<link rel="stylesheet" href="{% static 'retweet.css' %}">
+{% endblock header %}
+    {% block content %}
+<div class="container">
+    <div class="row">
+       <div class="col-md-6 mx-auto mt-5">
+          <div class="payment">
+             <div class="payment_header">
+                <div class="check"><i class="fa {% if not failed %}fa-check{% else %} fa-close {% endif %}" aria-hidden="true"></i></div>
+             </div>
+             <div class="content">
+                {% if failed %}
+                <h1>Retweeted Failed !</h1>
+                <p>An error occured, probably this tweet has already been retweeted by you...</p>
+                <a href="{% url 'home' %}">Go back Home</a>
+                {% else %}
+                    <h1>Retweeted Successfully !</h1>
+                    <p>The tweet has been reposted. Head on over to your twitter page and check it out</p>
+                    <a href="{% url 'home' %}">Go to Home</a> 
+                {% endif %}
+                
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ {% endblock %}
