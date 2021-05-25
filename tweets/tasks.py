@@ -28,8 +28,9 @@ def fetch_new_tips():
 
     for tweet in tweets:
         # convert naive timezone obj to datetime aware to avoid datetime warnings 
-        new_datetime = make_aware(tweet.created_at.strftime('%Y-%m-%d %H:%M:%S'))
-
+        # to_str_date = tweet.created_at.strftime('%Y-%m-%d %H:%M:%S')
+        new_datetime = make_aware(tweet.created_at)
+        # aware = make_aware(datetime.strptime(date, '%d-%m-%Y'))
         tweet_instance = Tweet.objects.create(
             tweet_id=tweet.id, 
             posted_by=tweet.user.screen_name,
