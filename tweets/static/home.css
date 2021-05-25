@@ -15,6 +15,10 @@
   white-space: pre-wrap;
 }
 
+.tweets .tweet .mb-retweet {
+  display: none;
+}
+
 .tweets .tweet .posted_by {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -121,7 +125,7 @@
 
 .navigation .pager .page a:hover {
   background-color: #f68b1e;
-  color: white;
+  color: white !important;
 }
 
 .navigation .pager .current {
@@ -150,5 +154,47 @@
   right: -8px;
   bottom: -8px;
   background-color: rgba(246, 139, 30, 0.15);
+}
+
+@media screen and (max-width: 480px) {
+  .tweets .tweet pre {
+    font-size: 14px;
+  }
+  .tweets .tweet .posted_by span {
+    font-size: 12.5px;
+  }
+  .tweets .tweet .posted_by .retweet {
+    display: none;
+  }
+  .tweets .tweet .mb-retweet {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+  .tweets .tweet .mb-retweet a {
+    margin-left: auto;
+    color: #f68b1e !important;
+    position: relative;
+  }
+  .tweets .tweet .mb-retweet a:hover {
+    cursor: pointer;
+  }
+  .tweets .tweet .mb-retweet a:hover::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background-color: rgba(246, 139, 30, 0.15);
+  }
+  .tweets .tweet .engagements .likes, .tweets .tweet .engagements .retweets {
+    font-size: 15px;
+  }
+  .tweets .tweet .engagements .likes span, .tweets .tweet .engagements .retweets span {
+    font-size: 14.5px;
+  }
 }
 /*# sourceMappingURL=home.css.map */

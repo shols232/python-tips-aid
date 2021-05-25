@@ -14,12 +14,15 @@
     <div class="nav-cont">
         <nav class="navbar">
             <a href="">
-                <div id="logo"><h1>TwiT</h1></div>
+                <div id="logo"><h1>Twit</h1></div>
             </a>
+            <a class="auth-mobile" href="{% url 'twitter_auth' %}"><div class="login">
+                <span>Authenticate</span>
+            </div></a>
             <div class="nav-items-container">
                 <div class="searchbar">
                     <form action="/" method="GET">
-                        <input type="text" placeholder="Search products, brands and categories" name="search" id="nav-searchbar">
+                        <input type="text" placeholder="Search for tweets" name="search" id="nav-searchbar">
                         <button class="search-btn" type="submit" >SEARCH</button>
                     </form>
                     </div>
@@ -29,10 +32,16 @@
                         <span>Log Out</span>
                     </div></a>
                     {% else %}
-                    <a href="{% url 'twitter_auth' %}"><div class="login">
+                    <a class="auth" href="{% url 'twitter_auth' %}"><div class="login">
                         <span>Authenticate</span>
                     </div></a>
                    {% endif %}
+                   <div class="searchbar mobile">
+                    <form action="/" method="GET">
+                        <input type="text" placeholder="Search for tweets" name="search" id="nav-searchbar">
+                        <button class="search-btn" type="submit" >SEARCH</button>
+                    </form>
+                    </div>
                 </div>
             </div>
         </nav>

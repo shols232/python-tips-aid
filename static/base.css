@@ -63,6 +63,10 @@ a {
           align-items: center;
 }
 
+.navbar .auth-mobile {
+  display: none;
+}
+
 .navbar .logo {
   height: 2rem;
   vertical-align: unset;
@@ -201,27 +205,37 @@ a {
   }
 }
 
+@media screen and (max-width: 630px) {
+  .container {
+    max-width: 520px;
+    min-width: 520px;
+  }
+  .navbar {
+    max-width: 520px;
+    min-width: 520px;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .container {
     max-width: unset !important;
     min-width: unset !important;
-    width: 100vw;
   }
   .navbar {
     max-width: unset;
     min-width: unset;
-    width: 100vw;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     height: auto;
-    padding: 11px;
+    padding: 5px;
+    text-align: center;
   }
   .navbar .logo {
-    height: 1.6rem;
+    height: 1.4rem;
     vertical-align: unset;
   }
   .navbar h1 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
   .navbar .searchbar {
     display: none;
@@ -233,35 +247,46 @@ a {
     -webkit-box-flex: 100%;
         -ms-flex: 100%;
             flex: 100%;
-    margin: 10px 1%;
   }
   .navbar .searchbar.mobile input {
     border-radius: 2rem;
     margin: 0;
+    height: 35px;
+    margin-right: 10px;
+    width: 93%;
+    font-size: 14px;
+  }
+  .navbar .searchbar.mobile .search-btn {
+    height: 34px;
+    width: 100px;
+  }
+  .navbar .auth-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 5px 10px 0 auto;
+  }
+  .navbar .auth-mobile span:hover {
+    color: #f68b1e;
   }
   .navbar .nav-items-container {
     -webkit-box-pack: unset;
         -ms-flex-pack: unset;
             justify-content: unset;
-    margin: 0 .2rem 0 auto;
-    -webkit-box-flex: 0;
-        -ms-flex: none;
-            flex: none;
+    -webkit-box-flex: 100%;
+        -ms-flex: 100% 0;
+            flex: 100% 0;
   }
   .navbar .nav-items-container .rightmost-nav-items {
     -webkit-box-pack: unset;
         -ms-flex-pack: unset;
             justify-content: unset;
   }
-  .navbar .nav-items-container .rightmost-nav-items div {
-    margin: 0 .5rem .5rem;
-  }
-  .navbar .nav-items-container .rightmost-nav-items div span {
+  .navbar .nav-items-container .rightmost-nav-items .auth {
     display: none;
   }
-  .navbar .nav-items-container .rightmost-nav-items div img {
-    height: 23px;
-    width: 23px;
+  .navbar .nav-items-container .rightmost-nav-items div {
+    margin: 0;
   }
 }
 /*# sourceMappingURL=base.css.map */

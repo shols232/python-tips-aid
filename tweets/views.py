@@ -23,6 +23,10 @@ tweepy.models.User.parse = parse
 auth = tweepy.OAuthHandler(settings.TWITTER_API_KEY, settings.TWITTER_API_SECRET_KEY, callback='https://76ce5143a75a.ngrok.io/twitter-auth/cb')
 
 def tweepy_api(request):
+    '''
+    takes in the request, performs authentication with twitter api and return a twitter 
+    Status object
+    '''
     token, token_secret = request.session.get('token', [None,None])
     if token:
         auth.set_access_token(token, token_secret)
@@ -55,6 +59,7 @@ class HomeView(ListView):
                 ).order_by('-popularity')
             return qs
         return super().get_queryset()
+
 
 def retweet(request, **kwargs):
     tweet_id = kwargs.get('tweet_id')

@@ -13,6 +13,9 @@
         <div class="tweets">
             {% for tweet in tweets %}
             <div class="tweet">
+                <div class="mb-retweet">
+                    <a class="rt" href="{% url 'retweet' tweet.tweet_id%}"><span class="retweet">RETWEET</span></a>
+                </div>
                 <div class="posted_by">
                     <p>{{ tweet.posted_by }}</p> -
                     <span>{{ tweet.date_posted }}</span>

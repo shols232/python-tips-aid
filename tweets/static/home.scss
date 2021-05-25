@@ -1,5 +1,6 @@
 .tweets{
     margin-top: 2.5rem;
+    
     .tweet{
         margin-bottom: 1.2rem;
         padding: 14px;
@@ -8,6 +9,9 @@
         pre{
             word-wrap: break-word ;
             white-space: pre-wrap;
+        }
+        .mb-retweet{
+            display: none;
         }
         .posted_by{
             display:flex;
@@ -95,7 +99,7 @@
 
                 &:hover{
                     background-color: #f68b1e;
-                    color: white;
+                    color: white !important;
                 }
             }
         }
@@ -124,4 +128,58 @@
             }
         }
     }
+}
+
+@media screen and (max-width: 480px){
+
+    .tweets{
+
+        .tweet{
+            pre{
+                font-size: 14px;
+            }
+            .posted_by{
+                span{
+                    font-size: 12.5px;
+                }
+
+                .retweet{
+                    display: none;
+                }
+            }
+
+            .mb-retweet{
+                display: flex;
+                font-size: 13px;
+                margin-bottom: 5px;
+                a{
+                    margin-left: auto;
+                    color: #f68b1e !important;
+                    position: relative;
+
+                    &:hover {
+                        cursor: pointer;
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            top: -8px;left: -8px; right: -8px;bottom: -8px;
+                            background-color: rgba(246,139,30,0.15);
+                        }
+                    }
+                }
+            }
+
+            .engagements{
+
+                .likes, .retweets{
+                    font-size: 15px;
+
+                    span{
+                        font-size:14.5px;
+                    }
+                }
+            }
+        }
+    }
+
 }
