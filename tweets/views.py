@@ -24,12 +24,9 @@ auth = tweepy.OAuthHandler(settings.TWITTER_API_KEY, settings.TWITTER_API_SECRET
 
 def tweepy_api(request):
     token, token_secret = request.session.get('token', [None,None])
-    print(token)
     if token:
-        print('sheye')
         auth.set_access_token(token, token_secret)
     else:
-        print('shoka')
         auth.set_access_token(settings.TWITTER_API_ACCESS_TOKEN, settings.TWITTER_API_ACCESS_TOKEN_SECRET)
     api = tweepy.API(auth, wait_on_rate_limit=True,
             wait_on_rate_limit_notify=True)
@@ -41,7 +38,7 @@ class HomeView(ListView):
             annotate(popularity=F('favourite_count') + F('retweet_count')
             ).order_by('-popularity')
     context_object_name = 'tweets'
-    paginate_by = 4
+    paginate_by = 15
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -73,7 +70,7 @@ def retweet(request, **kwargs):
 class SearchTweets(ListView):
     template_name = 'home.html'
     context_object_name = 'tweets'
-    paginate_by = 4
+    paginate_by = 15
 
     
     def get_queryset(self, **kwargs):

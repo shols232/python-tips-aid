@@ -38,7 +38,7 @@ def fetch_new_tips():
 
     for tweet in tweets:
         new_datetime = tweet.created_at.strftime('%Y-%m-%d %H:%M:%S')
-        print(tweet)
+        # print(tweet)
 
         tweet_instance = Tweet.objects.create(
             tweet_id=tweet.id_str, 
@@ -56,7 +56,9 @@ def fetch_new_tips():
             try:
                 url = Link.objects.create(link_type='photo', url=medium['media_url'])
             except KeyError:
+                print(medium)
                 url = Link.objects.create(link_type='video', url=medium['video_info']["variants"][0]["url"])
+                
             tweet_instance.links.add(url)
 
         print('succesfully done!')
