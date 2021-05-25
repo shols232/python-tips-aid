@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Tweet(models.Model):
-    tweet_id = models.IntegerField()
+    tweet_id = models.BigIntegerField()
     posted_by = models.CharField(max_length=300)
     content = models.TextField()
     date_posted = models.DateTimeField(auto_now_add=True)

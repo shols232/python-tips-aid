@@ -38,7 +38,7 @@ def fetch_new_tips():
 
     for tweet in tweets:
         new_datetime = tweet.created_at.strftime('%Y-%m-%d %H:%M:%S')
-        # print(tweet)
+        print(tweet)
 
         print(1)
         print(tweet.id)
