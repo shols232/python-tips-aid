@@ -40,6 +40,12 @@ def fetch_new_tips():
         new_datetime = tweet.created_at.strftime('%Y-%m-%d %H:%M:%S')
         # print(tweet)
 
+        print(1)
+        print(tweet.id)
+        print(tweet.user.screen_name)
+        print(tweet.favorite_count)
+        print(2)
+
         tweet_instance = Tweet.objects.create(
             tweet_id=tweet.id, 
             posted_by=tweet.user.screen_name,
