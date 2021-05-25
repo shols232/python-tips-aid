@@ -41,7 +41,7 @@ def fetch_new_tips():
         # print(tweet)
 
         tweet_instance = Tweet.objects.create(
-            tweet_id=tweet.id_str, 
+            tweet_id=tweet.id, 
             posted_by=tweet.user.screen_name,
             content=tweet.full_text,
             date_posted=new_datetime,
