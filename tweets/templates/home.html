@@ -13,13 +13,17 @@
         <div class="tweets">
             {% for tweet in tweets %}
             <div class="tweet">
+                {% if request.session.is_authenticated %}
                 <div class="mb-retweet">
                     <a class="rt" href="{% url 'retweet' tweet.tweet_id%}"><span class="retweet">RETWEET</span></a>
                 </div>
+                {% endif %}
                 <div class="posted_by">
                     <p>{{ tweet.posted_by }}</p> -
                     <span>{{ tweet.date_posted }}</span>
+                    {% if request.session.is_authenticated %}
                     <a class="rt" href="{% url 'retweet' tweet.tweet_id%}"><span class="retweet">RETWEET</span></a>
+                    {% endif %}
                 </div>
                     {% autoescape off %}
                     <pre class="content">{{ tweet.content }}</pre>
