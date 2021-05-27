@@ -25,15 +25,15 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-### Creating Social AUth Application (Required Only For the usage of API)
+### Creating Social Auth Application (Required Only For the usage of API)
 - login to django admin as superuser
 - create a social application with following fields
-... Provider ----> Twitter
-... Name -----> any name e.g TwitterAuth
-... Client ID -----> Twitter Api Key
-... Secret Key -----> Twitter Secret Key
-... select example.com under available sites and move to chosen sites
-... save
+... PROVIDER ----> Twitter
+...      Name -----> choose any name e.g TwitterAuth.
+...      Client ID -----> Twitter Api Key
+...      Secret Key -----> Twitter Secret Key
+...      select example.com under available sites and move to chosen sites
+...      SAVE the new soical application you have created.
 
 ### Run Server
 ```python 
@@ -66,12 +66,12 @@ Open the Swagger Docs to see the available endpoints
 ### API Endpoints
 
 - `api/auth/twitter` ---> POST ----> {
-    'access_token': Twitter Access Token
+    'access_token': Twitter Access Token, 
     'token_secret': Twitter Access Secret Token
 }
 
 - `api/user/favorites` ---> POST ----> {
-    'username': twitter username
+    'username': twitter username, 
     'tweets_count': number of tweets to be fetched, max is 400
 }
 
@@ -80,3 +80,5 @@ Open the Swagger Docs to see the available endpoints
 }
 
 **endpoints under `api/tweets/...` can be found in the swagger docs at `/api/swagger/`**
+
+**github url `https://github.com/shols232/python-tips-aid`**
