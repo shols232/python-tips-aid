@@ -68,7 +68,9 @@ Open the Swagger Docs to see the available endpoints
 - `api/auth/twitter` ---> POST ----> {
     'access_token': Twitter Access Token, 
     'token_secret': Twitter Access Secret Token
-}
+} ----> RESPONSE ---> {
+    token: token_string # USE THIS TOKEN FOR AUTHORIZATION ON POST REQUEST
+} with the format under authorization Headers ---> token : 'Token your_token'
 
 - `api/user/favorites` ---> POST ----> {
     'username': twitter username, 
