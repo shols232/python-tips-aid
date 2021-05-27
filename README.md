@@ -32,7 +32,7 @@ python manage.py createsuperuser
 ...      Name -----> choose any name e.g TwitterAuth.
 ...      Client ID -----> Twitter Api Key
 ...      Secret Key -----> Twitter Secret Key
-...      select example.com under available sites and move to chosen sites
+...      select `example.com` under `available sites` and move to `chosen sites`
 ...      SAVE the new soical application you have created.
 
 ### Run Server

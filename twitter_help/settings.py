@@ -188,5 +188,3 @@ CELERY_BEAT_SCHEDULE = {
 }
 
 CELERY_IMPORTS = ("tweets",)
-
-APPEND_SLASH = False
