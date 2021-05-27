@@ -60,7 +60,10 @@ Open the Swagger Docs to see the available endpoints
 `http://127.0.0.1:8000/api/swagger`
 
 ### LIVE URL
-`https://pytip-helper.herokuapp.com`   currently without the API integration just plain django web
+`https://pytip-helper.herokuapp.com`   
+
+### API LIVE URL
+`https://pytip-helper.herokuapp.com/api`   
 
 
 ### API Endpoints
