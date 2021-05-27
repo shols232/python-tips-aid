@@ -95,23 +95,23 @@ WSGI_APPLICATION = 'twitter_help.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-if DEBUG == 'TRUE':
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': config('NAME'),
-            'USER': config('USER_NAME'),
-            'PASSWORD': config('PASSWORD'),
-            'HOST': 'localhost',
-            'PORT': '',
-        }
-    }
-else:
-    DATABASES = {
-        'default':dj_database_url.config(
-            default=config('DATABASE_URL')
-        )
-    }
+# if DEBUG == 'TRUE':
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': config('NAME'),
+#             'USER': config('USER_NAME'),
+#             'PASSWORD': config('PASSWORD'),
+#             'HOST': 'localhost',
+#             'PORT': '',
+#         }
+#     }
+# else:
+DATABASES = {
+    'default':dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
