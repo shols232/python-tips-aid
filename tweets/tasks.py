@@ -7,6 +7,7 @@ from .models import Tweet, Link
 from django.conf import settings
 from django.utils.timezone import make_aware
 import json
+from django.db.utils import IntegrityError
 
 settings.TIME_ZONE
 
@@ -31,26 +32,29 @@ def fetch_new_tips():
         # to_str_date = tweet.created_at.strftime('%Y-%m-%d %H:%M:%S')
         new_datetime = make_aware(tweet.created_at)
         # aware = make_aware(datetime.strptime(date, '%d-%m-%Y'))
-        tweet_instance = Tweet.objects.create(
-            tweet_id=tweet.id, 
-            posted_by=tweet.user.screen_name,
-            content=tweet.full_text,
-            date_posted=new_datetime,
-            favourite_count=tweet.favorite_count,
-            retweet_count=tweet.retweet_count
-            )
+        try:
+            tweet_instance = Tweet.objects.create(
+                tweet_id=tweet.id, 
+                posted_by=tweet.user.screen_name,
+                content=tweet.full_text,
+                date_posted=new_datetime,
+                favourite_count=tweet.favorite_count,
+                retweet_count=tweet.retweet_count
+                )
+
+            media = tweet.entities.get('media', [])
+
+            for medium in media:
+                # check if image or video is available
+                try:
+                    url = Link.objects.create(link_type='photo', url=medium['media_url'])
+                except KeyError:
+                    url = Link.objects.create(link_type='video', url=medium['video_info']["variants"][0]["url"])
+                    
+                tweet_instance.links.add(url)
+        except IntegrityError:
+            # tweet content already exists so skip
+            pass
 
 
-        media = tweet.entities.get('media', [])
-
-        for medium in media:
-            # check if image or video is available
-            try:
-                url = Link.objects.create(link_type='photo', url=medium['media_url'])
-            except KeyError:
-                url = Link.objects.create(link_type='video', url=medium['video_info']["variants"][0]["url"])
-                
-            tweet_instance.links.add(url)
-
-
-
+fetch_new_tips()

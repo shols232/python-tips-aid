@@ -16,7 +16,7 @@ from decouple import config
 import dj_database_url
 from celery.schedules import crontab
 
-
+SITE_ID = 1
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,9 +44,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+
+    'django.contrib.sites',
     'tweets',
     'django_celery_beat',
     'tweepy_user_auth',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.twitter',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -87,8 +97,12 @@ WSGI_APPLICATION = 'twitter_help.wsgi.application'
 if DEBUG:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': config('NAME'),
+            'USER': config('USER_NAME'),
+            'PASSWORD': config('PASSWORD'),
+            'HOST': 'localhost',
+            'PORT': '',
         }
     }
 else:
@@ -154,10 +168,14 @@ TWITTER_API_ACCESS_TOKEN = '1208529937671569408-UXo2bLBdhoPgbYsHaQNxbssXdncwkh'
 TWITTER_API_ACCESS_TOKEN_SECRET = 'SIKUTek8i9NKLfwwhniPmgt62PGDAOpwhQv7QcUAeWlnq'
 TWITTER_BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAABZmPwEAAAAArAy0JSsvmrYh0IyF5en5EIBItl0%3D6hw8WErDnriWo3O4GjVA09xHURRn9YwHHpSuQYG1IgYv41PmFB'
 
+# REST_FRAMEWORK = {
+#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+#     'PAGE_SIZE': 5
+# }
 
 # Celery Broker - Redis  
-CELERY_BROKER_URL = config('REDIS_URL')  
-CELERY_RESULT_BACKEND = config('REDIS_URL')
+CELERY_BROKER_URL = 'redis://localhost:6379' 
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']  
 CELERY_TASK_SERIALIZER = 'json'  
 CELERY_RESULT_SERIALIZER = 'json'
@@ -171,3 +189,5 @@ CELERY_BEAT_SCHEDULE = {
 }
 
 CELERY_IMPORTS = ("tweets",)
+
+APPEND_SLASH = False

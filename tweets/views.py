@@ -5,36 +5,8 @@ from datetime import datetime
 from .models import Tweet, Link
 from django.conf import settings
 from django.views.generic import ListView
-from django.db.models import F
-
-@classmethod
-def parse(cls, api, raw):
-    status = cls.first_parse(api, raw)
-    setattr(status, 'json', json.dumps(raw))
-    return status
- 
-# Status() is the data model for a tweet
-tweepy.models.Status.first_parse = tweepy.models.Status.parse
-tweepy.models.Status.parse = parse
-# User() is the data model for a user profil
-tweepy.models.User.first_parse = tweepy.models.User.parse
-tweepy.models.User.parse = parse
-
-auth = tweepy.OAuthHandler(settings.TWITTER_API_KEY, settings.TWITTER_API_SECRET_KEY, callback='https://76ce5143a75a.ngrok.io/twitter-auth/cb')
-
-def tweepy_api(request):
-    '''
-    takes in the request, performs authentication with twitter api and return a twitter 
-    Status object
-    '''
-    token, token_secret = request.session.get('token', [None,None])
-    if token:
-        auth.set_access_token(token, token_secret)
-    else:
-        auth.set_access_token(settings.TWITTER_API_ACCESS_TOKEN, settings.TWITTER_API_ACCESS_TOKEN_SECRET)
-    api = tweepy.API(auth, wait_on_rate_limit=True,
-            wait_on_rate_limit_notify=True)
-    return api
+from django.db.models import F 
+from tweepy_utils import tweepy_api
 
 class HomeView(ListView):
     template_name = 'home.html'

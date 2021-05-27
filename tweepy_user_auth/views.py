@@ -13,7 +13,7 @@ def auth(request):
     # store the request token
     request.session['request_token'] = oauth.request_token
     request.session.modified = True
-
+    print(request.session['request_token'])
     return response
 
 # tweepy callback view
@@ -21,8 +21,10 @@ def auth_callback(request):
     '''
         acesses twitter oauth_verifier and sets token, token secret into session
     '''
+    print(1111, request.session['request_token'])
     request_token = request.session['request_token']
     del request.session['request_token'] 
+
 
     auth = tweepy.OAuthHandler(settings.TWITTER_API_KEY, settings.TWITTER_API_SECRET_KEY)
     auth.request_token = request_token
