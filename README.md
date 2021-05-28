@@ -8,7 +8,7 @@ it also allows for seamless filtering over the tweets scraped.
 It also provides API endpoints that can be easily plugged into a Front End
 
 ### Windows Users Caveat
-if you are running the package on a windows OS open up your requirements.txt file and change celery==5.1.0 to celery==5.0.5 to avoid `ModulNotFoundError: No module named 'grp'`
+if you are running the package on a windows OS open up your requirements.txt file and change `celery==5.1.0` to `celery==5.0.5` to avoid `ModulNotFoundError: No module named 'grp'`
 
 
 ### How to install
