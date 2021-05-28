@@ -7,11 +7,15 @@ it also allows for seamless filtering over the tweets scraped.
 
 It also provides API endpoints that can be easily plugged into a Front End
 
+### Windows Users Caveat
+if you are running the package on a windows OS open up your requirements.txt file and change celery==5.1.0 to celery==5.0.5 to avoid `ModulNotFoundError: No module named 'grp'`
+
+
 ### How to install
-First activate your vitual environment with   `source venv/bin/activate`
+First activate your vitual environment with  `source venv/bin/activate` if on linux
 - Next   
 ```python
-cd twitter_help
+cd python-tips-aid
 pip install -r requirements.txt
 ```
 - change .env.example to .env and fill in your environment variables
@@ -41,7 +45,7 @@ python manage.py runserver
 ```
 
 ### Run Celery Tasks
-- Firstly Make sure you are in **twitter_help** project directory containing the manage.py file
+- Firstly Make sure you are in **python-tips-aid** project directory containing the manage.py file
 - next open a new terminal with your venv active and in the right directory with manage.py run
 ```python 
     celery -A twitter_help worker -B -l INFO
