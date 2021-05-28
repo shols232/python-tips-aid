@@ -50,6 +50,7 @@ python manage.py runserver
 ```python 
     celery -A twitter_help worker -B -l INFO
 ```
+check the website at `http://127.0.0.1:8000`
 
 ### CAVEATS (This doesnt affect the API and the API would work just fine without)
 for the django website twitter user authentication to function properly, if it wasnt already obvious, you would need to be running an https server which django doesnt support out of the box, however you can use the very handy ngrok.io to listen to port 8000 which django listens to by default. **THEN** you would need to update the website urls on the twitter developer account
@@ -58,6 +59,8 @@ for the django website twitter user authentication to function properly, if it w
 - Website Url ----> `http://db9fe5b84537.ngrok.io`
 
 also change app permissions in developer.twitter dashboard to allow Read/Write Access
+
+IF all these arent done, you cant authenticate for the website aspect :(.
 
 ### Swagger Docs For the API
 Open the Swagger Docs to see the available endpoints
