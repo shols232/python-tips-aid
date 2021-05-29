@@ -16,9 +16,15 @@
             <a href="">
                 <div id="logo"><h1>Twit</h1></div>
             </a>
+            {% if request.session.is_authenticated %}
+                <a class="auth-mobile" href="{% url 'logout' %}"><div class="login">
+                <span>Log Out</span>
+            </div></a>
+            {% else %}
             <a class="auth-mobile" href="{% url 'twitter_auth' %}"><div class="login">
                 <span>Authenticate</span>
             </div></a>
+            {% endif %}
             <div class="nav-items-container">
                 <div class="searchbar">
                     <form action="/" method="GET">
@@ -28,7 +34,7 @@
                     </div>
                 <div class="rightmost-nav-items">
                     {% if request.session.is_authenticated %}
-                    <a href="{% url 'logout' %}"><div class="login">
+                    <a class="auth" href="{% url 'logout' %}"><div class="login">
                         <span>Log Out</span>
                     </div></a>
                     {% else %}
