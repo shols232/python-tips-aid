@@ -13,8 +13,8 @@ It also provides API endpoints that can be easily plugged into a Front End
 <!-- ![image](proj-github-images/1.png)
 ![image](proj-github-images/2.png) -->
 <p float="middle">
-  <img src="proj-github-images/1.png" width="100" />
-  <img src="proj-github-images/2.png" width="100" />
+  <img src="proj-github-images/1.png" width="49%" />
+  <img src="proj-github-images/2.png" width="49%" />
 </p>
 
 ### Windows Users Caveat for Installation
