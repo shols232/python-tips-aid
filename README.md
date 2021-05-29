@@ -1,5 +1,7 @@
 # python-tips-aid
 
+
+
 ## About
 python-tips-aid like the name suggests is a mobile friendly python package tailor made to be usable by the owners of 
 the python_tips, it periodically syncs the tweets on the @python_tips account in the Database, it also gives the user the priviledge of retweeting particular tweets to his own account after authentication,
@@ -7,7 +9,11 @@ it also allows for seamless filtering over the tweets scraped.
 
 It also provides API endpoints that can be easily plugged into a Front End
 
-### Windows Users Caveat
+### Preview
+![alt text](https://github.com/shols232/python-tips-aid/blob/master/Screenshot from 2021-05-29 18-02-11.png.png?raw=true)
+![alt text](https://github.com/shols232/python-tips-aid/blob/master/Screenshot from 2021-05-29 18-02-11.png.png?raw=true)
+
+### Windows Users Caveat for Installation
 if you are running the package on a windows OS open up your requirements.txt file and change `celery==5.1.0` to `celery==5.0.5` to avoid `ModulNotFoundError: No module named 'grp'`
 
 
